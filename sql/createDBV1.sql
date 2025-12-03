@@ -1,16 +1,11 @@
-CREATE DATABASE IF NOT EXISTS task_manager;
-USE task_manager;
-
-CREATE TABLE IF NOT EXISTS tasks (
-    id INT AUTO_INCREMENT,
-    title VARCHAR(200) NOT NULL,
-    description TEXT,
-    status VARCHAR(20) DEFAULT 'pending',
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    PRIMARY KEY(id)
+drop database if exists task_manager;
+create database task_manager;
+use task_manager;
+create table tasks (
+    id int auto_increment,
+    title varchar(100),
+    description text,
+    status varchar(20),
+    created_at timestamp default current_timestamp,
+    primary key(id)
 );
-
-INSERT INTO tasks (title, description, status) VALUES
-('Setup Project', 'Initialize the task manager project', 'completed'),
-('Create Database', 'Design and create database schema', 'completed'),
-('Build Frontend', 'Create HTML forms and pages', 'pending');
