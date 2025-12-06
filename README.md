@@ -16,6 +16,9 @@ A web-based task management system using PHP sessions and MySQL.
 
 ## Progress
 
-- V1: Database setup and configuration done
-- V2: Add task form with session handling working
-- V3: View all tasks function working
+- V1: Initial project setup with README
+- V1: Add database setup and configuration
+- V1: Add task insertion functionality
+- V2: Update database connection
+- V2: Add view all tasks functionality
+- V3: Add edit task functionality

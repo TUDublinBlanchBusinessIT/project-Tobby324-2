@@ -21,6 +21,7 @@
       <th>Description</th>
       <th>Status</th>
       <th>Created</th>
+      <th>Actions</th>
     </tr>
     
 <?php
@@ -37,10 +38,11 @@ if (mysqli_num_rows($result) > 0) {
         echo "<td>" . $row['description'] . "</td>";
         echo "<td>" . $row['status'] . "</td>";
         echo "<td>" . $row['created_at'] . "</td>";
+        echo "<td><a href='editTask.php?id=" . $row['id'] . "'>Edit</a></td>";
         echo "</tr>";
     }
 } else {
-    echo "<tr><td colspan='5'>No tasks found</td></tr>";
+    echo "<tr><td colspan='6'>No tasks found</td></tr>";
 }
 
 mysqli_close($conn);
