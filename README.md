@@ -22,3 +22,5 @@ A web-based task management system using PHP sessions and MySQL.
 - V2: Update database connection
 - V2: Add view all tasks functionality
 - V3: Add edit task functionality
+- V3: Add delete task functionality
+- V4: Add categories table with foreign key relationship
