@@ -38,7 +38,7 @@ if (mysqli_num_rows($result) > 0) {
         echo "<td>" . $row['description'] . "</td>";
         echo "<td>" . $row['status'] . "</td>";
         echo "<td>" . $row['created_at'] . "</td>";
-        echo "<td><a href='editTask.php?id=" . $row['id'] . "'>Edit</a></td>";
+        echo "<td><a href='editTask.php?id=" . $row['id'] . "'>Edit</a> | <a href='deleteTask.php?id=" . $row['id'] . "'>Delete</a></td>";
         echo "</tr>";
     }
 } else {
