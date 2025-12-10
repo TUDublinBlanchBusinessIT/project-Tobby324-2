@@ -22,9 +22,10 @@ $id = $_GET['id'];
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $title = $_POST['title'];
     $description = $_POST['description'];
+    $category = $_POST['category'];
     $status = $_POST['status'];
     
-    $sql = "update tasks set title='$title', description='$description', status='$status' where id=$id";
+    $sql = "update tasks set title='$title', description='$description', category_id='$category', status='$status' where id=$id";
     
     if (mysqli_query($conn, $sql)) {
         echo "<div class='alert alert-success'>Task updated successfully!</div>";
@@ -49,6 +50,22 @@ $task = mysqli_fetch_assoc($result);
       <label class="control-label col-sm-4" for="description">Description:</label>
       <div class="col-sm-8">          
         <textarea class="form-control" id="description" name="description" rows="4"><?php echo $task['description']; ?></textarea>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-4" for="category">Category:</label>
+      <div class="col-sm-8">
+        <select class="form-control" id="category" name="category">
+          <option value="">Select Category</option>
+<?php
+$sql2 = "select * from categories";
+$result2 = mysqli_query($conn, $sql2);
+while($cat = mysqli_fetch_assoc($result2)) {
+    $selected = ($cat['id'] == $task['category_id']) ? 'selected' : '';
+    echo "<option value='" . $cat['id'] . "' $selected>" . $cat['name'] . "</option>";
+}
+?>
+        </select>
       </div>
     </div>
     <div class="form-group">

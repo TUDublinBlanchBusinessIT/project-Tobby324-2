@@ -24,3 +24,5 @@ A web-based task management system using PHP sessions and MySQL.
 - V3: Add edit task functionality
 - V3: Add delete task functionality
 - V4: Add categories table with foreign key relationship
+- V4: Add category dropdown populated from database
+- V5: Update edit functionality to include category selection
