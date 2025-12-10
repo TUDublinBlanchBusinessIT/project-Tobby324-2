@@ -2,7 +2,7 @@
 session_start();
 
 include("taskClass.php");
-include("config.php");
+include("dbcon.php");
 
 $_SESSION['taskTitle'] = $_POST['title'];
 $_SESSION['taskDesc'] = $_POST['description'];

@@ -1,6 +1,6 @@
 <?php 
 include("header.php");
-include("config.php");
+include("dbcon.php");
 
 $id = $_GET['id'];
 

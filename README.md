@@ -40,13 +40,13 @@ This application allows users to manage tasks through a web interface with full 
 ## Setup Instructions
 
 1. Import database: `sql/createDBV2.sql`
-2. Update `config.php` with your database credentials (default port 3306)
+2. Update `dbcon.php` with your database credentials (default port 3306)
 3. Access via `http://localhost/task-manager/taskForm.php`
 
 ## File Structure
 ```
 task-manager/
-├── config.php           # Database connection
+├── dbcon.php           # Database connection
 ├── header.php           # Navigation menu
 ├── taskClass.php        # Task class definition
 ├── taskForm.php         # Add task form
@@ -62,7 +62,7 @@ task-manager/
 ## Development Progress
 
 - V1: Initial project setup with README
-- V1: Add database setup and configuration
+- V1: Add database setup and dbconuration
 - V1: Add task insertion functionality
 - V2: Update database connection
 - V2: Add view all tasks functionality

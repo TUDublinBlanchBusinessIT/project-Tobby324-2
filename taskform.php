@@ -24,7 +24,7 @@
       <select class="form-control" id="category" name="category" required>
         <option value="">Select Category</option>
 <?php
-include("config.php");
+include("dbcon.php");
 $sql = "select * from categories";
 $result = mysqli_query($conn, $sql);
 while($row = mysqli_fetch_assoc($result)) {

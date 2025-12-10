@@ -15,7 +15,7 @@
   </tr>
     
 <?php
-include("config.php");
+include("dbcon.php");
 
 $sql = "SELECT tasks.*, categories.name as category_name FROM tasks LEFT JOIN categories ON tasks.category_id = categories.id";
 $result = mysqli_query($conn, $sql);
