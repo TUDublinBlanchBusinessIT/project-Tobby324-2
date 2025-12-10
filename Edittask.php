@@ -1,9 +1,5 @@
-<?php include("header.php"); ?>
-
-  <h2 align="center">Edit Task</h2>
-  <br>
-
-<?php
+<?php 
+include("header.php");
 include("config.php");
 
 $id = $_GET['id'];
@@ -17,7 +13,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $sql = "update tasks set title='$title', description='$description', category_id='$category', status='$status' where id=$id";
     
     if (mysqli_query($conn, $sql)) {
-        echo "<div class='alert alert-success'>Task updated successfully!</div>";
+        mysqli_close($conn);
+        header("Location: viewTasks.php");
+        exit();
     } else {
         echo "<div class='alert alert-danger'>Error updating task</div>";
     }
@@ -28,24 +26,29 @@ $result = mysqli_query($conn, $sql);
 $task = mysqli_fetch_assoc($result);
 ?>
 
-  <form class="form-horizontal" method="POST">
-    <div class="form-group">
-      <label class="control-label col-sm-4" for="title">Task Title:</label>
-      <div class="col-sm-8">
-        <input type="text" class="form-control" id="title" name="title" value="<?php echo $task['title']; ?>">
-      </div>
+<h2 align="center">Edit Task</h2>
+<br>
+
+<form class="form-horizontal" method="POST">
+  <div class="form-group">
+    <label class="control-label col-sm-4" for="title">Task Title:</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" id="title" name="title" value="<?php echo $task['title']; ?>" required>
     </div>
-    <div class="form-group">
-      <label class="control-label col-sm-4" for="description">Description:</label>
-      <div class="col-sm-8">          
-        <textarea class="form-control" id="description" name="description" rows="4"><?php echo $task['description']; ?></textarea>
-      </div>
+  </div>
+  
+  <div class="form-group">
+    <label class="control-label col-sm-4" for="description">Description:</label>
+    <div class="col-sm-8">          
+      <textarea class="form-control" id="description" name="description" rows="4" required><?php echo $task['description']; ?></textarea>
     </div>
-    <div class="form-group">
-      <label class="control-label col-sm-4" for="category">Category:</label>
-      <div class="col-sm-8">
-        <select class="form-control" id="category" name="category">
-          <option value="">Select Category</option>
+  </div>
+  
+  <div class="form-group">
+    <label class="control-label col-sm-4" for="category">Category:</label>
+    <div class="col-sm-8">
+      <select class="form-control" id="category" name="category" required>
+        <option value="">Select Category</option>
 <?php
 $sql2 = "select * from categories";
 $result2 = mysqli_query($conn, $sql2);
@@ -54,32 +57,32 @@ while($cat = mysqli_fetch_assoc($result2)) {
     echo "<option value='" . $cat['id'] . "' $selected>" . $cat['name'] . "</option>";
 }
 ?>
-        </select>
-      </div>
+      </select>
     </div>
-    <div class="form-group">
-      <label class="control-label col-sm-4" for="status">Status:</label>
-      <div class="col-sm-8">
-        <select class="form-control" id="status" name="status">
-          <option value="pending" <?php if($task['status']=='pending') echo 'selected'; ?>>Pending</option>
-          <option value="in_progress" <?php if($task['status']=='in_progress') echo 'selected'; ?>>In Progress</option>
-          <option value="completed" <?php if($task['status']=='completed') echo 'selected'; ?>>Completed</option>
-        </select>
-      </div>
+  </div>
+  
+  <div class="form-group">
+    <label class="control-label col-sm-4" for="status">Status:</label>
+    <div class="col-sm-8">
+      <select class="form-control" id="status" name="status">
+        <option value="pending" <?php if($task['status']=='pending') echo 'selected'; ?>>Pending</option>
+        <option value="in_progress" <?php if($task['status']=='in_progress') echo 'selected'; ?>>In Progress</option>
+        <option value="completed" <?php if($task['status']=='completed') echo 'selected'; ?>>Completed</option>
+      </select>
     </div>
-    <div class="form-group">        
-      <div class="col-sm-offset-4 col-sm-8">
-        <button type="submit" class="btn btn-primary">Update Task</button>
-        <a href="viewTasks.php" class="btn btn-default">Cancel</a>
-      </div>
+  </div>
+  
+  <div class="form-group">        
+    <div class="col-sm-offset-4 col-sm-8">
+      <button type="submit" class="btn btn-primary">Update Task</button>
+      <a href="viewTasks.php" class="btn btn-default">Cancel</a>
     </div>
-  </form>
+  </div>
+</form>
 
 </div>
 
 </body>
 </html>
 
-<?php
-mysqli_close($conn);
-?>
+<?php mysqli_close($conn); ?>

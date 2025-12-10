@@ -1,18 +1,18 @@
 <?php include("header.php"); ?>
 
-  <h2 class="text-center">All Tasks</h2>
-  <br>
-  
-  <table class="table table-bordered">
-    <tr>
-      <th>ID</th>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Category</th>
-      <th>Status</th>
-      <th>Created</th>
-      <th>Actions</th>
-    </tr>
+<h2 class="text-center">All Tasks</h2>
+<br>
+
+<table class="table table-bordered table-striped">
+  <tr>
+    <th>ID</th>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Category</th>
+    <th>Status</th>
+    <th>Created</th>
+    <th>Actions</th>
+  </tr>
     
 <?php
 include("config.php");
@@ -38,7 +38,7 @@ if (mysqli_num_rows($result) > 0) {
 
 mysqli_close($conn);
 ?>
-  </table>
+</table>
 
 </div>
 
