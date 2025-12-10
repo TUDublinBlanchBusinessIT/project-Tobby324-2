@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "usbw";
+$password = "1111";
 $dbname = "task_manager";
 $port = 3306;
 
