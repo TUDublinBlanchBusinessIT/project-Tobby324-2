@@ -1,20 +1,65 @@
 # Task Manager
 
-A web-based task management system using PHP sessions and MySQL.
+A web-based task management system using PHP, MySQL and Bootstrap.
 
-## Setup
+## Description
 
-1. Import database: sql/createDBV1.sql
-2. Update config.php with the database credentials
-3. Access via http://localhost/task-manager/taskForm.html
+This application allows users to manage tasks through a web interface with full CRUD operations. Tasks can be categorized, tracked by status, and managed efficiently.
 
 ## Features
 
-- It can add tasks with title, description and status
-- It can allow the user to view all tasks in a table
-- It uses PHP sessions for data handling
+- Add tasks with title, description, category and status
+- View all tasks in a formatted table with alternating row colors
+- Edit existing tasks including category changes
+- Delete tasks with automatic redirect
+- Category management with dropdown selection
+- PHP sessions for secure data handling
+- Object-oriented programming with Task class
+- Navigation menu across all pages
+- Form validation on all inputs
+- Database relationships using foreign keys
 
-## Progress
+## Technology Stack
+
+- PHP (procedural and OOP)
+- MySQL with foreign key relationships
+- Bootstrap 3.4.1 for responsive design
+- MySQLi for database operations
+- HTML5 forms with validation
+
+## Database Structure
+
+**Tables:**
+- `tasks` - stores task information with foreign key to categories
+- `categories` - stores task categories
+
+**Relationships:**
+- One-to-many relationship (categories → tasks)
+- Uses LEFT JOIN to display category names
+
+## Setup Instructions
+
+1. Import database: `sql/createDBV2.sql`
+2. Update `config.php` with your database credentials (default port 3306)
+3. Access via `http://localhost/task-manager/taskForm.php`
+
+## File Structure
+```
+task-manager/
+├── config.php           # Database connection
+├── header.php           # Navigation menu
+├── taskClass.php        # Task class definition
+├── taskForm.php         # Add task form
+├── processTask.php      # Form processing with sessions and class
+├── viewTasks.php        # Display all tasks
+├── editTask.php         # Edit task form
+├── deleteTask.php       # Delete task handler
+└── sql/
+    ├── createDBV1.sql   # Initial database
+    └── createDBV2.sql   # Database with categories
+```
+
+## Development Progress
 
 - V1: Initial project setup with README
 - V1: Add database setup and configuration
@@ -28,3 +73,7 @@ A web-based task management system using PHP sessions and MySQL.
 - V5: Update edit functionality to include category selection
 - V5: Add Task class for object-oriented processing
 - V6: Add navigation menu across all pages
+- V6: Add form validation, improve styling and user flow
+
+
+
