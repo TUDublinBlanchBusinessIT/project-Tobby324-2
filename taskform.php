@@ -27,6 +27,23 @@
       </div>
     </div>
     <div class="form-group">
+      <label class="control-label col-sm-4" for="category">Category:</label>
+      <div class="col-sm-8">
+        <select class="form-control" id="category" name="category">
+          <option value="">Select Category</option>
+<?php
+include("config.php");
+$sql = "select * from categories";
+$result = mysqli_query($conn, $sql);
+while($row = mysqli_fetch_assoc($result)) {
+    echo "<option value='" . $row['id'] . "'>" . $row['name'] . "</option>";
+}
+mysqli_close($conn);
+?>
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
       <label class="control-label col-sm-4" for="status">Status:</label>
       <div class="col-sm-8">
         <select class="form-control" id="status" name="status">
