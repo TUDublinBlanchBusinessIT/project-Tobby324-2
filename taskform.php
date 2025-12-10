@@ -1,18 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Task Manager</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-</head>
-<body>
+<?php include("header.php"); ?>
 
-<div class="container">
-  <h2 align="center">Task Manager</h2>
-  <br><br>
+  <h2 align="center">Add New Task</h2>
+  <br>
   <form class="form-horizontal" action="processTask.php" method="POST">
     <div class="form-group">
       <label class="control-label col-sm-4" for="title">Task Title:</label>
@@ -59,11 +48,7 @@ mysqli_close($conn);
       </div>
     </div>
   </form>
-  
-  <div class="col-sm-12 text-center">
-    <br>
-    <a href="viewTasks.php">View All Tasks</a>
-  </div>
+
 </div>
 
 </body>

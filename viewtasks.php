@@ -1,16 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>View Tasks</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-</head>
-<body>
+<?php include("header.php"); ?>
 
-<div class="container">
   <h2 class="text-center">All Tasks</h2>
   <br>
   
@@ -19,7 +8,7 @@
       <th>ID</th>
       <th>Title</th>
       <th>Description</th>
-     <th>Category</th>
+      <th>Category</th>
       <th>Status</th>
       <th>Created</th>
       <th>Actions</th>
@@ -50,12 +39,8 @@ if (mysqli_num_rows($result) > 0) {
 mysqli_close($conn);
 ?>
   </table>
-  
-  <div class="text-center">
-    <a href="taskForm.php" class="btn btn-primary">Add New Task</a>
-  </div>
-</div>
 
+</div>
 
 </body>
 </html>
